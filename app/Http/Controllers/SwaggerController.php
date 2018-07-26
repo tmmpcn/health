@@ -6,7 +6,8 @@ class SwaggerController extends Controller
 {
     public function create()
     {
-        $swagger = \Swagger\scan('/Users/yangmao/wwwroot/wx.6530.cn/app/Http');
+
+        $swagger = \Swagger\scan(str_replace("/Controllers","",dirname(__FILE__)));
         header('Content-Type: application/json');
         echo $swagger;
 

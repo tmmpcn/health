@@ -4,12 +4,7 @@ namespace App\Http\Controllers;
 
 use Log;
 use Illuminate\Support\Facades\DB;
-
 //use \Curl\Curl;
-
-
-
-
 class WeChatController extends Controller
 {
 
@@ -20,16 +15,12 @@ class WeChatController extends Controller
      */
     public function serve()
     {
-        //Log::info('request arrived.'); # 注意：Log 为 Laravel 组件，所以它记的日志去 Laravel 日志看，而不是 EasyWeChat 日志
-
         $app = app('wechat.official_account');
         $app->server->push(function($message){
             switch ($message['MsgType']) {
                 case 'text':
                     //preg_match_all("/(\d+)+/",$message['Content'],$return);
                     preg_match_all("/(\d+)(\.\d{1,2})?/",$message['Content'],$return);
-                    Log::info(var_export($return,1));
-                    $is_analysis = false;
                     if(!empty($return[0]))
                     {
 
@@ -47,7 +38,7 @@ class WeChatController extends Controller
                                     'times'=>date("Y-m-d"),
                                     'post'=>var_export($message,1),
                                 ]);
-                                $is_analysis = true;
+
                                 return '血压数据收到';
                                 break;
                             case 6:
@@ -59,28 +50,21 @@ class WeChatController extends Controller
                                     'post'=>var_export($message,1),
                                     'ctime'=>date("Y-m-d H:i:s"),
                                 ]);
-                                $is_analysis = true;
+
                                 return '血糖数据收到';
                                 break;
                         }
 
 
                     }
-                    if(!$is_analysis)
+                    $mark = mb_substr($message['Content'],0,1);
+                    if($mark=='!' || $mark=='！')
                     {
-
-                        $mark = mb_substr($message['Content'],0,1);
-                        Log::info($mark);
-                        if($mark=='!' || $mark=='！')
-                        {
-                            return "您提交的血糖数据格式有误\n早晚各一次,一次性发过来\n数据之间可以用任意字符隔开\n如:3.1*2.2*100*6.1*3.2*300";
-                        }else
-                        {
-                            return "您输入的血压数据格式有误\n早晚各一次,一次性发过来\n数据之间可以用任意字符隔开\n如:114*72*123*74";
-                        }
+                        return "您提交的血糖数据格式有误\n早晚各一次,一次性发过来\n数据之间可以用任意字符隔开\n如:!3.1*2.2*100*6.1*3.2*300";
+                    }else
+                    {
+                        return "您输入的血压数据格式有误\n早晚各一次,一次性发过来\n数据之间可以用任意字符隔开\n如:114*72*123*74";
                     }
-
-
                     break;
             }
         });

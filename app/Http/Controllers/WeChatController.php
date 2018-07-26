@@ -69,7 +69,7 @@ class WeChatController extends Controller
                     if(!$is_analysis)
                     {
 
-                        $mark = substr($message['Content'],0,3);
+                        $mark = mb_substr($message['Content'],0,1);
                         Log::info($mark);
                         if($mark=='!' || $mark=='！')
                         {

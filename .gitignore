@@ -1,0 +1,10 @@
+/node_modules
+/public/swagger-ui
+/storage/*.key
+/storage/logs
+/vendor
+/.idea
+/.vscode
+/.vagrant
+npm-debug.log
+.env

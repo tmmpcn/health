@@ -53,6 +53,9 @@ class WeChatController extends Controller
 
                                 return '血糖数据收到';
 
+
+
+
                                 break;
                         }
 

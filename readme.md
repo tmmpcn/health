@@ -1,21 +1,8 @@
-# Lumen PHP Framework
+# 简介
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
-
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
-
-## Official Documentation
-
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+&nbsp;&nbsp;2013年的某一天,听了一个一席演讲,里面提到对于高血压这种慢性病长期记录自己的血压和行为以及饮食,坚持了很久后回头看这些记录有很多意想不到的收获,主人公是用excel记录的,坚持了很久。
+&nbsp;&nbsp;这件事对我触动很大,因为我妈也有高血压,长期性的高血压对其肾造成了破坏,有很多检测指标不正常了。
+&nbsp;&nbsp;我开始想我如何来记录我妈的血压,最开始想到的一个办法是用我妈的手机号绑定新浪微博,然后发短信就相当于发了微博,然后我用程序去采集新浪微博的内容,以获取到血压数据。
+&nbsp;&nbsp;近几年微信开始普及,我妈也用微信了,于是做了一个微信公众号,向公众号发了后,就能获取血压数据,公众号还能发提醒,让她提交血压数据。
+&nbsp;&nbsp;感兴趣的话微信搜索"大白健康助手"。
+&nbsp;&nbsp;希望把这个产品化，方便到更多人,为了打消疑虑,将源代码开源。

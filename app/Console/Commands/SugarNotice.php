@@ -41,7 +41,7 @@ class SugarNotice extends Command
      */
     public function handle()
     {
-        $openid = ['oD5CP0k-zzGQ8eLNQrlcaWCZP-n0','oD5CP0nnnKtTYRj6nR0pfB2g8_NA'];
+        $openid = ['oD5CP0k-zzGQ8eLNQrlcaWCZP-n0','oD5CP0r1hQ7HrW7rw0JY9OiyuuIE'];
         $app = app('wechat.official_account');
         foreach ($openid as $item)
         {
@@ -51,8 +51,8 @@ class SugarNotice extends Command
                 //'url' => 'https://easywechat.org',
                 'data' => [
                     'first' => '您好！您有一条血糖测量提醒',
-                    'keyword1' => '薰衣草',
-                    'keyword2' => "2次/周",
+                    'keyword1' => '法律在线王浩',
+                    'keyword2' => "1次/周",
                     'remark' => '您今天该进行血糖测量啦',
 
                 ],

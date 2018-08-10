@@ -28,6 +28,6 @@ class Kernel extends ConsoleKernel
     {
         //
         $schedule->command('SendNotice')->dailyAt('17:30');
-        $schedule->command('SugarNotice')->cron('0 7 * * 2,6');;
+        $schedule->command('SugarNotice')->cron('30 17 * * 0');;
     }
 }

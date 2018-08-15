@@ -16,6 +16,8 @@ class Kernel extends ConsoleKernel
         //
         Commands\SendNotice::class,
         Commands\SugarNotice::class,
+        Commands\SendNewStock::class,
+        Commands\Message::class,
     ];
 
     /**

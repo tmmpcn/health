@@ -59,18 +59,9 @@ class SendNewStock extends Command
         if(!empty($stock))
         {
             $app = app('wechat.official_account');
-            $app->template_message->send([
-                'touser' => 'oD5CP0oapo8I7tFDRJ-1BfiwdsKA',
-                'template_id' => 'op0XDQyddXAfWBwvEdqjxadaj9lBp5DJ870AAZadYsk',
-                //'url' => 'https://easywechat.org',
-                'data' => [
-                    'first' => '请记得发送今天的血压数据哦',
-                    'keyword1' => '邓长芬',
-                    'keyword2' => date("Y-m-d"),
-                    'remark' => '请每天定时发,天天坚持,棒棒的',
 
-                ],
-            ]);
+            $tagId = 101;//标签为 boss
+            $app->broadcasting->sendText('今日有'.$stock."可以申购", $tagId); // $tagId 必须是整型数字
         }
 
 

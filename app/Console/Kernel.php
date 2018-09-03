@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         Commands\SendNotice::class,
         Commands\SugarNotice::class,
         Commands\SendNewStock::class,
+        Commands\SendWeather::class,
         Commands\Message::class,
     ];
 
@@ -31,6 +32,7 @@ class Kernel extends ConsoleKernel
         //
         $schedule->command('SendNotice')->dailyAt('17:30');
         $schedule->command('SugarNotice')->cron('30 17 * * 0');
-        $schedule->command('SendNewStock')->cron('0 9 * * 1-5');
+        $schedule->command('SendNewStock')->cron('0 9 * * 1-5');//新股提醒
+        $schedule->command('SendWeather')->dailyAt('10:05');//发花粉过敏提醒
     }
 }

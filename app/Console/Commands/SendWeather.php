@@ -56,9 +56,9 @@ class SendWeather extends Command
         {
             $say[1] = str_replace(["<b>","</b>"],["",","],$say[1]);
             $allergy = '指数:'.$say[1].",".trim($result[1]);
+            $allergy = str_replace([",","，"],"\\n",$allergy);
 
         }
-
         if(!empty($allergy))
         {
             $app = app('wechat.official_account');

@@ -65,7 +65,14 @@ class SendWeather extends Command
             $app = app('wechat.official_account');
 
             $tagId = 102;//标签为 allergy:过敏提醒
-            $app->broadcasting->sendText($allergy, $tagId); // $tagId 必须是整型数字
+            //$app->broadcasting->sendText($allergy, $tagId); // $tagId 必须是整型数字
+
+            $data = $app->user_tag->usersOfTag($tagId, $nextOpenId = '');
+
+            if( !empty($data) && $data['count']>1)
+            {
+                $app->broadcasting->sendText($allergy, $data['data']['openid']);
+            }
         }
 
 

@@ -59,9 +59,7 @@ class SendNewStock extends Command
         if(!empty($stock))
         {
             $app = app('wechat.official_account');
-
-            $tagId = 101;//标签为 boss
-            $app->broadcasting->sendText('今日有'.$stock."可以申购", $tagId); // $tagId 必须是整型数字
+            $app->broadcasting->previewText('今日有'.$stock."可以申购", 'oD5CP0k-zzGQ8eLNQrlcaWCZP-n0');
         }
 
 

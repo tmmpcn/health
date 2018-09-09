@@ -64,7 +64,7 @@ class SendWeather extends Command
         {
             $app = app('wechat.official_account');
 
-            $app->broadcasting->previewText($allergy, 'oD5CP0k-zzGQ8eLNQrlcaWCZP-n0');
+            $app->broadcasting->previewText($allergy, 'oD5CP0vCCbDNx1dAdfWEA-yYU7MQ');
         }
 
 

@@ -44,8 +44,10 @@ class Message extends Command
     {
 
         $app = app('wechat.official_account');
-        dd($app->user_tag->list());
+        //dd($app->user_tag->list());
 
+        $data = $app->user_tag->usersOfTag(102, $nextOpenId = '');
 
+        dd($data);
     }
 }

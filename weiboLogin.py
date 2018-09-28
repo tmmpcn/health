@@ -41,6 +41,7 @@ class WeiboLogin(object):
         self.session = requests.Session()
         self.cookie_path = cookie_path
         self.session.cookies = cookielib.LWPCookieJar(filename=self.cookie_path)
+        print(self.session.cookies)
         self.index_url = "http://weibo.com/login.php"
         self.session.get(self.index_url, headers=headers, timeout=2)
         self.postdata = dict()

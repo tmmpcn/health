@@ -189,6 +189,6 @@ if __name__ == "__main__":
 
     username = "loveyangmao@126.com"
     password = "yangmao726"
-    pincode = login_pre(username)
-    login(username, password, pincode)
+    #pincode = login_pre(username)
+    #login(username, password, pincode)
     get_content()

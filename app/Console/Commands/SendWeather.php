@@ -42,22 +42,9 @@ class SendWeather extends Command
     public function handle()
     {
 
-        $data = httpRequest('http://bj.weather.com.cn');
-
-        preg_match("/<h2 style=\"position\: relative\;\" class=\"weatheH1\">\s+医疗气象指数\((.*?)\)\s+<\/h2>/", $data, $result);//
-
-        preg_match("/<section class=\"detail co\">\s+<aside>(.*?)<\/aside>\s+<a><\/a>\s+<\/section>/", $data, $say);
-
-
-
-        $allergy = '';
-        if (!empty($result[1])) {
-            $say[1] = str_replace(["<b>","</b>"], ["",","], $say[1]);
-
-            $allergy = '指数:'.$say[1].",".trim($result[1]);
-
-            $allergy = str_replace([",","，"], "\n", $allergy);
-
+        $data = file_get_contents(rtrim(dirname(__FILE__), "app/Console/Commands")."/public/data/pollen.data");
+        if (!empty($data)) {
+            $allergy = str_replace(["#"], "\n", $data);
         }
 
         if (!empty($allergy)) {

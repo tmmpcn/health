@@ -33,6 +33,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('SendNotice')->dailyAt('17:30');
         $schedule->command('SugarNotice')->cron('30 17 * * 0');
         $schedule->command('SendNewStock')->cron('0 9 * * 1-5');//新股提醒
-        $schedule->command('SendWeather')->dailyAt('11:20');//发花粉过敏提醒
+        $schedule->exec('python /www/web/wx_6530_cn/public_html/weibo.py')->dailyAt('16:00');
+        $schedule->command('SendWeather')->dailyAt('11:30');//发花粉过敏提醒
     }
 }

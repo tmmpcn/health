@@ -152,6 +152,8 @@ def login(username, password, pincode):
     else:
         postdata["pincode"] = pincode[0]
         postdata["pcid"] = pincode[1]
+
+    print(postdata)    
     headers["Host"] = "passport.weibo.cn"
     headers["Reference"] = index_url
     headers["Origin"] = "https://passport.weibo.cn"

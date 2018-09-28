@@ -68,7 +68,7 @@ def get_content():
     selector = etree.fromstring(html,etree.HTMLParser(encoding='utf-8'))
     contents = selector.xpath('//span[@class="ctt"]/text()')
     #print(contents)
-    #print(contents)
+    print(contents)
     # 发送日期
     #times = selector.xpath('//span[@class="ct"]/text()')
     pollen = ''

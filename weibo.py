@@ -162,7 +162,7 @@ def login(username, password, pincode):
     #print(login.cookies)
     # print(login.status_code)
     js = login.json()
-    # print(js)
+    print(js)
     uid = js["data"]["uid"]
     crossdomain = js["data"]["crossdomainlist"]
     cn = crossdomain["sina.com.cn"]#"https:" + crossdomain["sina.com.cn"]

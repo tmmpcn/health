@@ -74,7 +74,7 @@ def get_content():
     html = session.get("https://weibo.cn/2611704935").content
     selector = etree.fromstring(html,etree.HTMLParser(encoding='utf-8'))
     contents = selector.xpath('//span[@class="ctt"]/text()')
-    #print(contents)
+    print(contents)
     #print(contents)
     # 发送日期
     #times = selector.xpath('//span[@class="ct"]/text()')
@@ -82,7 +82,7 @@ def get_content():
     for each_text in contents:
         content = each_text.encode().decode('utf-8').replace('\u200b','')
         #print(content)
-        if(content.find('国庆节天气')>0):
+        if(content.find('花粉浓度')>0):
             pollen = content
             break
         #print(content);
@@ -196,6 +196,6 @@ if __name__ == "__main__":
 
     username = "loveyangmao@126.com"
     password = "yangmao726"
-    #pincode = login_pre(username)
-    #login(username, password, pincode)
+    pincode = login_pre(username)
+    login(username, password, pincode)
     get_content()

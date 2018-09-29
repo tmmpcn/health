@@ -42,7 +42,7 @@ class SendWeather extends Command
     public function handle()
     {
 
-        $data = file_get_contents(rtrim(dirname(__FILE__), "app/Console/Commands")."/public/data/pollen.data");
+        $data = file_get_contents(str_replace("app/Console/Commands", "", trim(dirname(__FILE__)))."public/data/pollen.data");
         if (!empty($data)) {
             $allergy = str_replace(["#"], "\n", $data);
         }

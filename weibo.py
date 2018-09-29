@@ -82,16 +82,15 @@ def get_content():
     for each_text in contents:
         content = each_text.encode().decode('utf-8').replace('\u200b','')
         #print(content)
-        if(content.find('花粉浓度')>0):
+        if(content.find('国庆节天气')>0):
             pollen = content
             break
         #print(content);
         #
-    
     if pollen!='':
         pollen = pollen.split("。")
         del pollen[0]
-        f = open('public/data/pollen.data', 'w')
+        f = open(os.getcwd()+'/public/data/pollen.data', 'w')
         f.write("#".join(pollen))
         f.close()
         print(pollen)

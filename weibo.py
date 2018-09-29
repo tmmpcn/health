@@ -65,12 +65,12 @@ def get_su(username):
 
 
 def get_content():
-    session.cookies = cookielib.LWPCookieJar(filename='cookie_path')
-    try:    
-        session.cookies.load(ignore_discard=True)
-        #pass
-    except IOError:    
-        print('Cookie未加载！')
+    #session.cookies = cookielib.LWPCookieJar(filename='cookie_path')
+    #try:    
+    #    session.cookies.load(ignore_discard=True)
+    #    #pass
+    #except IOError:    
+    #    print('Cookie未加载！')
     html = session.get("https://weibo.cn/2611704935").content
     selector = etree.fromstring(html,etree.HTMLParser(encoding='utf-8'))
     contents = selector.xpath('//span[@class="ctt"]/text()')

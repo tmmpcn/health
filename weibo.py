@@ -27,6 +27,7 @@ try:
 except:
     from urllib import quote_plus
 import os
+import http.cookiejar as cookielib
 
 '''
 3.4
@@ -64,11 +65,17 @@ def get_su(username):
 
 
 def get_content():
+    session.cookies = cookielib.LWPCookieJar(filename='cookie_path')
+    try:    
+        session.cookies.load(ignore_discard=True)
+        #pass
+    except IOError:    
+        print('Cookie未加载！')
     html = session.get("https://weibo.cn/2611704935").content
     selector = etree.fromstring(html,etree.HTMLParser(encoding='utf-8'))
     contents = selector.xpath('//span[@class="ctt"]/text()')
     #print(contents)
-    print(contents)
+    #print(contents)
     # 发送日期
     #times = selector.xpath('//span[@class="ct"]/text()')
     pollen = ''
@@ -190,6 +197,6 @@ if __name__ == "__main__":
 
     username = "loveyangmao@126.com"
     password = "yangmao726"
-    pincode = login_pre(username)
-    login(username, password, pincode)
+    #pincode = login_pre(username)
+    #login(username, password, pincode)
     get_content()

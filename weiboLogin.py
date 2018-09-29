@@ -43,6 +43,7 @@ class WeiboLogin(object):
         self.session.cookies = cookielib.LWPCookieJar(filename=self.cookie_path)
         try:    
             self.session.cookies.load(ignore_discard=True)
+            #pass
         except IOError:    
             print('Cookie未加载！')
         print(self.session.cookies)

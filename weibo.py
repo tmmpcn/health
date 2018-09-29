@@ -26,7 +26,7 @@ try:
     from urllib.parse import quote_plus
 except:
     from urllib import quote_plus
-import os
+import sys
 import http.cookiejar as cookielib
 
 '''
@@ -90,7 +90,7 @@ def get_content():
     if pollen!='':
         pollen = pollen.split("。")
         del pollen[0]
-        f = open(os.getcwd()+'/public/data/pollen.data', 'w')
+        f = open(sys.path[0]+'/public/data/pollen.data', 'w')
         f.write("#".join(pollen))
         f.close()
         print(pollen)

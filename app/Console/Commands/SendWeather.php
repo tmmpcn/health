@@ -42,7 +42,8 @@ class SendWeather extends Command
     public function handle()
     {
 
-        $data = file_get_contents(str_replace("app/Console/Commands", "", trim(dirname(__FILE__)))."public/data/pollen.data");
+        $fileName = str_replace("app/Console/Commands", "", trim(dirname(__FILE__)))."public/data/pollen.data";
+        $data = file_get_contents($fileName);
         if (!empty($data)) {
             $allergy = str_replace(["#"], "\n", $data);
         }
@@ -53,6 +54,8 @@ class SendWeather extends Command
             $app->broadcasting->previewText($allergy, 'oD5CP0vCCbDNx1dAdfWEA-yYU7MQ');
 
             $app->broadcasting->previewText($allergy, 'oD5CP0k-zzGQ8eLNQrlcaWCZP-n0');
+
+            @unlink($fileName);
         }
     }
 }

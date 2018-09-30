@@ -8,3 +8,5 @@
 /.vagrant
 npm-debug.log
 .env
+public/data/pollen.data
+composer.lock
